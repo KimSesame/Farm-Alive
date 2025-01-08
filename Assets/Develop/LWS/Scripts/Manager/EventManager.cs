@@ -5,10 +5,14 @@ using UnityEngine.Events;
 using GameData;
 using System;
 
+/// <summary>
+/// 시스템 기획서 상 같은 색 동시에 일어나지 않는 로직 추가 필요
+/// 스테이지 매니저의 현재 날씨 받아와서 occurPlusPercent 설정 필요
+/// </summary>
 public class EventManager : MonoBehaviour
 {
     [Header("이벤트 계산 주기")]
-    [SerializeField] float checkInterval = 1.0f;
+    [SerializeField] float _checkInterval = 1.0f;
 
     // 이벤트가 진행 중이면 새 이벤트 발생 불가
     private bool _isEventPlaying = false;
@@ -18,8 +22,6 @@ public class EventManager : MonoBehaviour
 
     [SerializeField] EVENT _currentEvent; // 현재 진행 중인 이벤트
 
-
-    [SerializeField] private StageManager stageManager;
 
     private void Start()
     {
@@ -38,7 +40,7 @@ public class EventManager : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(checkInterval);
+            yield return new WaitForSeconds(_checkInterval);
 
             // 이벤트 진행중이면 계산 패스
             if (_isEventPlaying)

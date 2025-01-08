@@ -217,6 +217,14 @@ public class FirebaseManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 스테이지 결과 파이어 베이스에 저장 메서드. 
+    /// </summary>
+    public void SaveStageResult(int stageID, float playedTime, int starCount)
+    {
+
+    }
+
+    /// <summary>
     /// 최근 로그인한 기록을 저장하는 메서드.
     /// </summary>
     public void UpdateLastLogin()
